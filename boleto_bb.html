@@ -4,24 +4,52 @@
     <meta charset="UTF-8">
     <title>Boleto BB</title>
     <style>
-        @media screen, print{
-            #boleto{
+        /*Configuração para tamanho de página A4 - Início*/
+        body {
+            /*background: rgb(204,204,204);*/
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 23cm;
+            height: 29.7cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+        }
+
+        @media print {
+            body, page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+            }
+        }
+        /*Configuração para tamanho de página A4 - Fim*/
+
+        @media screen, print {
+            #boleto {
                 width: 665px;
                 font-size: 12px;
             }
+
             #instrucoes ul {
                 padding: 10px;
             }
-            #instrucoes .titulo{
+
+            #instrucoes .titulo {
                 text-align: center;
             }
-            .linha-pontilhada{
+
+            .linha-pontilhada {
                 width: 100%;
                 border-bottom: 1px dashed #000;
             }
-            .linha-pontilhada span{
-                float: right;
-            }
+
+                .linha-pontilhada span {
+                    float: right;
+                }
+
             .hack {
                 display: block;
                 clear: both;
@@ -35,8 +63,9 @@
                 background-repeat: no-repeat;
                 border-bottom: 1px solid #000;
                 float: left;
-				margin-top: 20px;
+                margin-top: 20px;
             }
+
             .cod-banco {
                 height: 20px;
                 font-size: 20px;
@@ -46,8 +75,9 @@
                 float: left;
                 margin-top: 20px;
             }
+
             .linha-digitavel {
-                width: 462px;
+                width: 590px;
                 height: 20px;
                 font-size: 16px;
                 text-align: right;
@@ -55,13 +85,16 @@
                 float: left;
                 margin-top: 20px;
             }
+
             .texto-a-direita {
                 text-align: right;
             }
+
             .texto-a-esquerda {
                 text-align: left;
             }
-            .cell{
+
+            .cell {
                 border-left: 1px solid #000;
                 border-top: 1px solid #000;
                 height: 30px;
@@ -70,191 +103,185 @@
                 font-weight: bold;
                 padding-left: 5px;
             }
-            .cell label{
-                display: block;
-                height: 18px;
-                font-size: 10px;
-                text-align: left;
-                font-weight: normal;
-            }
+
+                .cell label {
+                    display: block;
+                    height: 18px;
+                    font-size: 10px;
+                    text-align: left;
+                    font-weight: normal;
+                }
         }
     </style>
 </head>
 <body id="boleto">
-<div id="instrucoes">
-    <p class="titulo">
-        Instruções de Impressão
-    </p>
-    <ul>
-        <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).</li>
-        <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.</li>
-        <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.</li>
-        <li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.</li>
-        <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking.</li>
-    </ul>
-    <p>
-        Linha Digitável: <span>10498.00004 00002.915650 00000.013870 8 64750000010000</span><br />
-        Valor: <span>R$ 100,00</span>
-    </p>
-</div>
-<div class="linha-pontilhada">
-    <span>Recibo do Sacado</span>
-</div>
-<br class="hack">
-<!-- Inicio do recibo do sacado -->
-<div class="logo"></div>
-<div class="cod-banco">001-9</div>
-<div class="linha-digitavel">10498.00004 00002.915650 00000.013870 8 64750000010000</div>
-<div class="hack"></div>
+    <page size="A4">
+        <div id="instrucoes">
+            <p class="titulo">
+                Instruções de Impressão
+            </p>
+            <ul>
+                <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).</li>
+                <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.</li>
+                <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.</li>
+                <li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.</li>
+                <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking.</li>
+            </ul>
+        </div>
+        <div class="linha-pontilhada">
+            <span>Recibo do Sacado</span>
+        </div>
+        <br class="hack">
+        <!-- Inicio do recibo do sacado -->
+        <div class="logo"></div>
+        <div class="cod-banco">001-9</div>
+        <div class="linha-digitavel">00190.00009 03128.557216 19120.217179 1 88540000012345</div>
+        <div class="hack"></div>
 
-<div class="cell" style="width: 657px">
-    <label>Nome do Pagador/CPF/CNPJ/Endereço</label>
-    DevFSA
-</div>
-<div class="cell" style="width: 126px;">
-    <label>Nosso Número</label>
-    Pedro Kayan Sampaio
-</div>
-<div class="cell" style="width: 127px">
-    <label>Nr. Documento</label>
-    0000 / 00000000000-0
-</div>
-<div class="cell" style="width: 127px">
-    <label>Data de Vencimento</label>
-    R$
-</div>
-<div class="cell" style="width: 127px">
-    <label>Valor do Documento</label>
-    &nbsp;
-</div>
-<div class="cell texto-a-direita" style="width: 127px">
-    <label>(=) Valor Pago</label>
-    0000000001-7
-</div>
+        <div class="cell" style="width: 798px">
+
+            <label>Nome do Pagador/CPF/CNPJ/Endereço</label>
+            VALERIO DE AGUIAR ZORZATO - CPF: 96050176876 - Avenida Dias Gomes 1970, Centro, Sucupira, TO, 77458000
+        </div>
+        <div class="cell" style="width: 170px;">
+            <label>Nosso Número</label>
+            00031285572119120217
+        </div>
+        <div class="cell" style="width: 200px">
+            <label>Nr. Documento</label>
+            11PL39321422847
+        </div>
+        <div class="cell" style="width: 127px">
+            <label>Data de Vencimento</label>
+            03/01/2022
+        </div>
+        <div class="cell" style="width: 127px">
+            <label>Valor do Documento</label>
+            123,45
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>(=) Valor Pago</label>
+            0,00
+        </div>
+
+        <div class="cell" style="width: 798px; height: 80px" >
+            <label>Nome do Beneficiário/CPF/CNPJ/Endereço</label>
 
 
-<div class="cell" style="width: 657px">
-    <label>Nome do Beneficiário/CPF/CNPJ/Endereço</label>
-    DevFSA
-</div>
-<div class="cell" style="width: 657px; height: 100px; border-left: 0px;">
-    <label>Demonstrativo <span style="float: right">Autenticação mecânica</span></label>
-    Criação de Boleto.<br />
-    Tarifa bancária: R$ 2,50 <br>
-    Autor: Kayan Sampaio
-</div>
-<br class="hack">
-<!-- Fim do Recibo do Sacado-->
+            Dirceu Borboleta - 
+        </div>
 
-<div class="linha-pontilhada">
-    <span>Corte na linha pontilhada</span>
-</div>
-<br class="hack">
+        <br class="hack">
+        <!-- Fim do Recibo do Sacado-->
 
-<!--Inicio do recibo do cedente-->
-<div class="logo"></div>
-<div class="cod-banco">001-9</div>
-<div class="linha-digitavel">10498.00004 00002.915650 00000.013870 8 64750000010000</div>
-<div class="hack"></div>
-<div class="cell" style="width: 462px">
-    <label>Local de Pagamento</label>
-    Pagável em qualquer banco até o vencimento.
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>Data de Vencimento</label>
-    28/06/2015
-</div>
-<div class="cell" style="width: 462px">
-    <label>Nome do Beneficiário/CPF/CNPJ</label>
-    Pedro Kayan Sampaio
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>Agência/Código do Beneficiário</label>
-    0000 / 00000000000-0
-</div>
-<div class="cell" style="width: 120px">
-    <label>Data do Documento</label>
-    28/06/2015
-</div>
-<div class="cell" style="width: 120px">
-    <label>Nr. do Documento</label>
-    1
-</div>
-<div class="cell" style="width: 60px">
-    <label>Espécie DOC</label>
-    &nbsp;
-</div>
-<div class="cell" style="width: 40px">
-    <label>Aceite</label>
-    &nbsp;
-</div>
-<div class="cell" style="width: 98px">
-    <label>Data do Processamento</label>
-    28/06/2015
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>Nosso Número</label>
-    0000000001-7
-</div>
+        <div class="linha-pontilhada">
+            <span>Corte na linha pontilhada</span>
+        </div>
+        <br class="hack">
 
-<div class="cell" style="width: 120px">
-    <label>Uso do banco</label>
-    &nbsp;
-</div>
-<div class="cell" style="width: 74px">
-    <label>Carteira</label>
-    &nbsp;
-</div>
-<div class="cell" style="width: 40px">
-    <label>Espécie</label>
-    R$
-</div>
-<div class="cell" style="width: 106px">
-    <label>Quantidade</label>
-    &nbsp;
-</div>
-<div class="cell" style="width: 98px">
-    <label>(x) Valor</label>
-    &nbsp;
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>(=) Valor do Documento</label>
-    100,00
-</div>
-<div class="cell" style="width: 462px; height: 154px;">
-    <label>Instruções (Texto de responsabilidade do Cedente)</label>
-    &nbsp;
-</div>
+        <!--Inicio do recibo do cedente-->
+        <div class="logo"></div>
+        <div class="cod-banco">001-9</div>
+        <div class="linha-digitavel">00190.00009 03128.557216 19120.217179 1 88540000012345</div>
+        <div class="hack"></div>
+        <div class="cell" style="width: 640px">
+            <label>Local de Pagamento</label>
+            Pagável em qualquer banco.
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>Data de Vencimento</label>
+            03/01/2022
+        </div>
+        <div class="cell" style="width: 640px">
+            <label>Nome do Beneficiário/CPF/CNPJ</label>
+            98959112000179
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>Agência/Código do Beneficiário</label>
+            452 / 123873
+        </div>
+        <div class="cell" style="width: 170px">
+            <label>Data do Documento</label>
+            03/12/2021
+        </div>
+        <div class="cell" style="width: 200px">
+            <label>Nr. do Documento</label>
+            11PL39321422847
+        </div>
+        <div class="cell" style="width: 60px">
+            <label>Espécie DOC</label>
+            DM
+        </div>
+        <div class="cell" style="width: 80px">
+            <label>Aceite</label>
+            N
+        </div>
+        <div class="cell" style="width: 106px">
+            <label>Data do Processamento</label>
+            03/12/2021
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>Nosso Número</label>
+            00031285572119120217
+        </div>
 
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>(-) Desconto/Abatimento</label>
-    &nbsp;
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>(+) Juros/Multa</label>
-    &nbsp;
-</div>
-<div class="cell texto-a-direita" style="width: 189px">
-    <label>(=) Valor Cobrado</label>
-    &nbsp;
-</div>
+        <div class="cell" style="width: 170px">
+            <label>Uso do banco</label>
+            &nbsp;
+        </div>
+        <div class="cell" style="width: 200px">
+            <label>Carteira</label>
+            17
+        </div>
+        <div class="cell" style="width: 60px">
+            <label>Espécie</label>
+            R$
+        </div>
+        <div class="cell" style="width: 80px">
+            <label>Quantidade</label>
+            
+        </div>
+        <div class="cell" style="width: 106px">
+            <label>(x) Valor</label>
+            &nbsp;
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>(=) Valor do Documento</label>
+            123,45
+        </div>
+        <div class="cell" style="width: 640px; height: 154px;">
+            <label>Informações de Responsabilidade do Beneficiário</label>
+            Texto livre benefici&#xE1;rio para ser impresso no boleto
+        </div>
 
-<div class="cell" style="width: 657px; height: 60px;">
-    <label>Sacado</label>
-    DevFSA,<br>
-    Endereço: Rua A, numero 12 - Feira de Santana / Bahia<br>
-    Centro, CEP: 44100-000
-</div>
-<div class="cell" style="width: 657px; height: 80px;">
-    <label>Sacador/Avalista <span style="float: right">Autenticação mecânica</span></label>
-    <!-- Esta é apenas uma ilustração do código de barras. tem que ser substituido pelo que o seu sistema irá gerar! -->
-    <img src="imagens/mod-boleto10.jpg" />
-</div>
-<br class="hack">
-<div class="linha-pontilhada">
-    <span>Corte na linha pontilhada</span>
-</div>
-<!--Final do recibo do cedente-->
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>(-) Desconto/Abatimento</label>
+            &nbsp;
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>(+) Juros/Multa</label>
+            &nbsp;
+        </div>
+        <div class="cell texto-a-direita" style="width: 150px">
+            <label>(=) Valor Cobrado</label>
+            &nbsp;
+        </div>
 
+        <div class="cell" style="width: 798px; height: 60px;">
+            <label>Nome do Pagador/CPF/CNPJ/Endereço</label>
+            VALERIO DE AGUIAR ZORZATO - CPF: 96050176876 - Avenida Dias Gomes 1970, Centro, Sucupira, TO, 77458000CNPJ: 98959112000179 - 1, SUL (AGUAS CLARAS), BRASILIA, DF, 71940180
+        </div>
+        <div class="cell" style="width: 798px; height: 100px;">
+            <label>Sacador/Avalista <span style="float: right">Autenticação mecânica</span></label>
+            <div class="codigobarras" style="height: 90px">
+                <img style="width: 600px; height: 70px;" id="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAABGCAYAAAAQJeoeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACM5SURBVHhetY9Bqu1IFMPe/jf9eyRQC0xVwo3AgyO7Avn79yF/f3//C/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/BZ9&#x2B;ff1Ib/DWKatfHn7Vg7dOedqTUn/arZR6b&#x2B;1L&#x2B;9t9d8vD2355uO3BW3toT8ry0J67vjzdgd848NTD2355uO3Lya8e2vuNPbQn5eRXSr23Dpz8wm&#x2B;8qyfl5E89eOuUem/toT0pX/W9wVunrL43eOuU1feG5Qu77pcv3RFYd/0XfPr19SO9wVunrH55&#x2B;FUP3jrlaU9K/Wm3Uuq9tS/tb/fdLQ9v&#x2B;&#x2B;Xhtgdv7aE9KctDe&#x2B;768nQHfuPAUw9v&#x2B;&#x2B;Xhti8nv3po7zf20J6Uk18p9d46cPILv/GunpSTP/XgrVPqvbWH9qR81fcGb52y&#x2B;t7grVNW3xuWL&#x2B;y6X750R2Dd9V/w6dfXj/QGb52y&#x2B;uXhVz1465SnPSn1p91KqffWvrS/3Xe3PLztl4fbHry1h/akLA/tuevL0x34jQNPPbztl4fbvpz86qG939hDe1JOfqXUe&#x2B;vAyS/8xrt6Uk7&#x2B;1IO3Tqn31h7ak/JV3xu8dcrqe4O3Tll9b1i&#x2B;sOt&#x2B;&#x2B;dIdgXXXf8GnX18/0hu8dcrql4df9eCtU572pNSfdiul3lv70v52393y8LZfHm578NYe2pOyPLTnri9Pd&#x2B;A3Djz18LZfHm77cvKrh/Z&#x2B;Yw/tSTn5lVLvrQMnv/Ab7&#x2B;pJOflTD946pd5be2hPyld9b/DWKavvDd46ZfW9YfnCrvvlS3cE1l3/e/79&#x2B;w/KOHR/t&#x2B;KJXgAAAABJRU5ErkJggg==" />
+            </div>
+        </div>
+        <br class="hack">
+        <div class="linha-pontilhada">
+            <span>Corte na linha pontilhada</span>
+        </div>
+        <!--Final do recibo do cedente-->
+    </page>
 </body>
 </html>
